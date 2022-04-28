@@ -1,5 +1,6 @@
 import const
 import lief
+import time
 
 # Binary Pack хийх класс
 class BinPack(object):
@@ -30,3 +31,10 @@ class BinPack(object):
     #     section_alignment = unpack_PE.optional_header.section_alignment
     #     packed_data = list(pack_data)
     #     packed_data = self.pad_data()
+
+# Программын нэр болон тайлбарыг эхлэлд хэвлэх 
+def PrintBeginning():
+    print("Binary File Packer --------------------")
+    print("Application Name: ", const.APPLICATIONNAME)
+    time.sleep(1.5)
+    return
