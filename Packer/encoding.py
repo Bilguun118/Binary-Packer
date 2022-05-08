@@ -60,8 +60,8 @@ def Total_Gain(data, coding):
     for symbol in symbols:
         count = data.count(symbol)
         after_compression += count * len(coding[symbol]) #calculate how many bit is required for that symbol in total
-    print("Space usage before compression (in bits):", before_compression)    
-    print("Space usage after compression (in bits):",  after_compression)           
+    print("Өгөгдлийг шахахаас өмнөх хэмжээ (битээр):", before_compression)    
+    print("Өгөгдлийг шахсаны дараах хэмжээ (битээр):",  after_compression)           
 
 def Encoding(data):
     symbol_with_probs = Calculate_Probability(data)
