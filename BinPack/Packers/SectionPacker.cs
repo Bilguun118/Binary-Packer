@@ -7,15 +7,19 @@ using BinPack.Runtime;
 
 namespace BinPack.Packers
 {
+    // SectionPacker нэртэй Sealed класс үүсгэх
     public sealed class SectionPacker : Packer
     {
         private readonly ModuleDefinition _stubModule;
-
+        
+        // StubModule-ыг үүсгэх
         public SectionPacker(byte[] payload, string outputPath) : base(payload, outputPath)
         {
+            // CreateStub функцийг дуудаж _stubModule (readonly) хувьсагчид хадгалана.
             _stubModule = CreateStub(ModuleDefinition.FromBytes(payload));
         }
 
+        // файлыг build хийх.
         public override void Execute()
         {
             InjectLoader(_stubModule, typeof(PeSectionLoader));

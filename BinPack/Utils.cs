@@ -7,7 +7,7 @@ namespace BinPack
 {
     public static class Utils
     {
-        // TODO Remove Encryption of Code Section
+        // XOR Encryption хийх функц
         private static byte[] Xor(this byte[] data, string name)
         {
             for (int i = 0; i < data.Length; i++)
@@ -18,7 +18,7 @@ namespace BinPack
             return data;
         }
 
-        // Huffman Encoding Compression Algorithm
+        // Deflate Compression алгоритм болон XOR Encryption алгоритм
         public static byte[] Compress(this byte[] data, string key)
         {
             using var mStream = new MemoryStream();

@@ -72,7 +72,7 @@ namespace BinPack.Runtime
                     // Raw өгөгдлийн хэмжээтэй buffer хувьсагч үүсгэнэ.
                     byte[] buffer = new byte[section.SizeOfRawData];
                     basePtr += section.VirtualAddress;
-                    // Binary файлын section хэсгийг буффер-руу бичих ба huffman coding алгоритмаар шахсан өгөгдлийг decode хийж авна.
+                    // Binary файлын section хэсгийг буффер-руу бичих ба Deflate алгоритмаар шахаж XOR алгоритмаар нууцласан өгөгдлийг decode хийж авна.
                     fixed (byte* p = &buffer[0])
                     {
                         for (int i = 0; i < buffer.Length; i++)

@@ -5,6 +5,7 @@ using AsmResolver.DotNet.Cloning;
 
 namespace BinPack.Packers
 {
+    // Execute Interface
     public interface IPacker
     {
         void Execute();
@@ -33,7 +34,7 @@ namespace BinPack.Packers
         protected static ModuleDefinition CreateStub(ModuleDefinition originModule)
         {
             var stubModule =
-                new ModuleDefinition( originModule.Name, originModule.CorLibTypeFactory.CorLibScope.GetAssembly() as AssemblyReference);
+                new ModuleDefinition(originModule.Name, originModule.CorLibTypeFactory.CorLibScope.GetAssembly() as AssemblyReference);
             
             originModule.Assembly.Modules.Insert( 0, stubModule );
             

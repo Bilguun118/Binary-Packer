@@ -1,0 +1,36 @@
+// Программын эхлэл
+START PROGRAM
+// Main функц
+FUNCTION MAIN() {
+    /*
+        Хэрэглэгчээс Binary файлын замыг аргументын утгад аван 
+    */
+    INPUT exe file
+    BYTE[] inputdata 
+    READBYTES exe file ON inputdata
+    STRING outputPath
+    outputPath += exe file + "_binpacked"
+    Packer = NEW SectionPacker(inputdata, outputPath)
+    Packer.Execute()
+    Print "Finished"
+}
+
+
+// SectionPacker классын SectionPacker функц
+FUNCTION SectionPacker(BYTE[] InputData, STRING outputPath) {
+    /*
+        _stubModule нэртэй ModuleDefinition классын объект үүсгэнэ.
+        оролтын буфферээс .NET модулийг унших FromByt       es() функцыг дуудна.
+        CreateStub функцийг дуудна.
+    */
+    PRIVATE READONLY ModuleDefinition _stubModule;
+    _stubModule = CreateStub(FromBytes(InputData))
+}
+
+
+// Packer классын CreateStub функц
+FUNCTION CreateStub(ModuleDefinition originalModule) {
+    // stubModule нэртэй ModuleDefinition обьект үүсгэнэ
+    stubModule = NEW ModuleDefinition(originModule.Name, originModule.CorLibTypeFactory.CorLibScope.GetAssembly() as AssemblyReference)
+
+}
